@@ -10,7 +10,7 @@ export const loadMockTasks = createAction(
 
 export const addTask = createAction(
   '[Kanban] Add Task',
-  props<{ title: string }>()
+  props<{ title: string; id: string }>()
 );
 
 export const updateTask = createAction(

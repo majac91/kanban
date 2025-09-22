@@ -11,13 +11,13 @@ export const kanbanReducer = createReducer(
     tasks
   })),
 
-  on(KanbanActions.addTask, (state, { title }) => ({
+  on(KanbanActions.addTask, (state, { title, id }) => ({
     ...state,
     tasks: [...state.tasks, {
-      id: crypto.randomUUID(),
+      id,
       title,
       status: TaskStatus.TODO,
-      loadingPriority: false,
+      loadingPriority: true,
       priority: undefined,
       errorPriority: undefined
     }]

@@ -17,7 +17,9 @@ export class TaskInputComponent {
 
   addTask(): void {
     if (this.taskTitle.trim()) {
-      this.store.dispatch(KanbanActions.addTask({ title: this.taskTitle }));
+      const id = crypto.randomUUID();
+      this.store.dispatch(KanbanActions.addTask({ title: this.taskTitle, id }));
+      this.store.dispatch(KanbanActions.fetchPriority({ taskId: id }));
       this.taskTitle = '';
     }
   }
