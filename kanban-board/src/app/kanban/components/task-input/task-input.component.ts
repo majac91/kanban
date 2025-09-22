@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Store } from '@ngrx/store';
+import * as KanbanActions from '../../store/actions';
 
 @Component({
   selector: 'app-task-input',
@@ -11,5 +13,12 @@ import { FormsModule } from '@angular/forms';
 export class TaskInputComponent {
   taskTitle: string = '';
 
-  addTask(): void {}
+  constructor(private store: Store) {}
+
+  addTask(): void {
+    if (this.taskTitle.trim()) {
+      this.store.dispatch(KanbanActions.addTask({ title: this.taskTitle }));
+      this.taskTitle = '';
+    }
+  }
 }

@@ -1,7 +1,7 @@
 <div class="task-card">
   <div class="task-header">
     <h3 class="task-title">{{ task()?.title || 'Untitled Task' }}</h3>
-    <button class="delete-btn" aria-label="Delete task">×</button>
+    <button class="delete-btn" aria-label="Delete task" (click)="deleteTask()">×</button>
   </div>
 
   <div class="task-footer">
