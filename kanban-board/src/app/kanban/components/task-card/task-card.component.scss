@@ -25,6 +25,34 @@
   margin: 0;
   line-height: 1.4;
   flex: 1;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  .edit-icon {
+    opacity: 0;
+    transition: opacity 0.2s;
+    font-size: 12px;
+  }
+
+  &:hover .edit-icon {
+    opacity: 0.7;
+  }
+}
+
+.task-edit-input {
+  font-size: 14px;
+  font-weight: 400;
+  color: #172b4d;
+  line-height: 1.4;
+  flex: 1;
+  border: 1px solid #3b82f6;
+  border-radius: 4px;
+  padding: 2px 4px;
+  outline: none;
+  font-family: inherit;
 }
 
 .delete-btn {

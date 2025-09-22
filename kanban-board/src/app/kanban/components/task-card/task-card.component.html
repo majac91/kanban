@@ -1,6 +1,21 @@
 <div class="task-card">
   <div class="task-header">
-    <h3 class="task-title">{{ task()?.title || 'Untitled Task' }}</h3>
+    @if (isEditing) {
+      <input
+        type="text"
+        class="task-edit-input"
+        [(ngModel)]="editTitle"
+        (keyup.enter)="saveEdit()"
+        (keyup.escape)="cancelEdit()"
+        (blur)="saveEdit()"
+        autofocus
+      />
+    } @else {
+      <h3 class="task-title" (click)="startEdit()">
+        {{ task()?.title || 'Untitled Task' }}
+        <span class="edit-icon">✏️</span>
+      </h3>
+    }
     <button class="delete-btn" aria-label="Delete task" (click)="deleteTask()">×</button>
   </div>
 
