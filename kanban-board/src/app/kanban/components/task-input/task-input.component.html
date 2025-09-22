@@ -1,3 +1,16 @@
-<div class="task-input">
-  task input works!
+<div class="task-input-container">
+  <input
+    type="text"
+    class="task-input"
+    placeholder="Enter a task..."
+    [(ngModel)]="taskTitle"
+    (keyup.enter)="addTask()"
+  />
+  <button
+    class="add-btn"
+    [disabled]="!taskTitle?.trim()"
+    (click)="addTask()"
+  >
+    Add Task
+  </button>
 </div>

@@ -1,3 +1,21 @@
 <div class="task-card">
-  task card works!
+  <div class="task-header">
+    <h3 class="task-title">{{ task()?.title || 'Untitled Task' }}</h3>
+    <button class="delete-btn" aria-label="Delete task">×</button>
+  </div>
+
+  <div class="task-footer">
+    @if (task()?.loadingPriority) {
+      <div class="loading-spinner">
+        <span class="spinner"></span>
+        <span>Loading priority...</span>
+      </div>
+    } @else if (task()?.errorPriority) {
+      <span class="error-badge">Error</span>
+    } @else if (task()?.priority) {
+      <span class="priority-badge" [attr.data-priority]="task()?.priority?.toLowerCase()">
+        {{ task()?.priority }}
+      </span>
+    }
+  </div>
 </div>

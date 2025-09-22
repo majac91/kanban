@@ -9,5 +9,7 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './task-input.component.scss'
 })
 export class TaskInputComponent {
+  taskTitle: string = '';
 
+  addTask(): void {}
 }

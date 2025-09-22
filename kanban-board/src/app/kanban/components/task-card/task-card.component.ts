@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import {Component, input} from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Task } from '../../interfaces/task.interface';
 
 @Component({
   selector: 'app-task-card',
@@ -8,5 +9,5 @@ import { CommonModule } from '@angular/common';
   styleUrl: './task-card.component.scss'
 })
 export class TaskCardComponent {
-
+  task = input<Task>();
 }

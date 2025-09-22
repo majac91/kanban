@@ -1,3 +1,44 @@
 <div class="kanban-board">
-  board works!
+  <div class="kanban-column">
+    <div class="column-header">
+      <h2 class="column-title">To Do</h2>
+      <span class="task-count">{{ todoTasks.length }}</span>
+    </div>
+    <div class="column-content">
+      <app-task-input></app-task-input>
+      <div class="tasks-container">
+        @for (task of todoTasks; track task.id) {
+          <app-task-card [task]="task"></app-task-card>
+        }
+      </div>
+    </div>
+  </div>
+
+  <div class="kanban-column">
+    <div class="column-header">
+      <h2 class="column-title">In Progress</h2>
+      <span class="task-count">{{ inProgressTasks.length }}</span>
+    </div>
+    <div class="column-content">
+      <div class="tasks-container">
+        @for (task of inProgressTasks; track task.id) {
+          <app-task-card [task]="task"></app-task-card>
+        }
+      </div>
+    </div>
+  </div>
+
+  <div class="kanban-column">
+    <div class="column-header">
+      <h2 class="column-title">Done</h2>
+      <span class="task-count">{{ doneTasks.length }}</span>
+    </div>
+    <div class="column-content">
+      <div class="tasks-container">
+        @for (task of doneTasks; track task.id) {
+          <app-task-card [task]="task"></app-task-card>
+        }
+      </div>
+    </div>
+  </div>
 </div>
